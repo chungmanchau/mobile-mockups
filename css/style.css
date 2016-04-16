@@ -190,13 +190,14 @@ input[type="checkbox"], input[type="radio"] {
 
 html {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  font-size: 20px; }
   html body {
     width: 100%;
     height: 100%;
     background: #333; }
     html body .wrapper {
-      padding-top: 25vh; }
+      padding-top: 15vh; }
 
 html {
   -webkit-box-sizing: border-box;
@@ -214,10 +215,10 @@ html {
   height: 31rem;
   margin: 0 auto;
   padding: 0;
-  border: 5px solid #ECCECE;
+  border: 5px solid #F5CEC4;
   border-radius: 2rem;
   background: #f8f8f8;
-  box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #999, 0 0 30px 0 rgba(0, 0, 0, 0.7); }
+  box-shadow: 0 0 0 1px #CACACA, 0 0 30px 0 rgba(0, 0, 0, 0.5); }
   .iphone span {
     display: block; }
   .iphone .iphone-top {
@@ -257,15 +258,17 @@ html {
       .iphone .iphone-content .screen::-webkit-scrollbar {
         display: none; }
   .iphone .iphone-btns {
-    position: relative; }
+    position: absolute;
+    left: 0;
+    width: 100%; }
     .iphone .iphone-btns .side-btn {
       position: absolute;
-      width: .19rem;
+      width: .1rem;
       border-radius: .5rem 0 0 .5rem;
       background: #ccc; }
     .iphone .iphone-btns .iphone-btns-left {
       position: absolute;
-      left: -.5rem; }
+      left: -.4rem; }
       .iphone .iphone-btns .iphone-btns-left .sound {
         height: 1.5rem;
         top: .5rem; }
@@ -288,8 +291,19 @@ html {
       width: 2.3rem;
       height: 2.3rem;
       margin: 0 auto;
-      border: 2px solid #acacad;
+      background: -webkit-linear-gradient(top left, #F5CEC4 0%, #AF8585 50%, #f0f2f2 75%, #F5CEC4 100%);
+      background: -o-linear-gradient(top left, #F5CEC4 0%, #AF8585 50%, #f0f2f2 75%, #F5CEC4 100%);
+      background: linear-gradient(bottom right, #F5CEC4 0%, #AF8585 50%, #f0f2f2 75%, #F5CEC4 100%);
       border-radius: 50%;
-      background: #fff; }
+      position: relative; }
+      .iphone .iphone-bottom .home-btn:after {
+        background: radial-gradient(#E6E6E6 0%, #FFF 100%);
+        content: "";
+        position: absolute;
+        left: .1rem;
+        top: .1rem;
+        width: 2.1rem;
+        height: 2.1rem;
+        border-radius: 50%; }
 
 /*# sourceMappingURL=style.css.map */

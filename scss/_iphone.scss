@@ -1,132 +1,265 @@
-.iphone {
+$iphone-pink: #c99d97;
+$iphone-pink-dark: darken($iphone-pink, 10%);
+$iphone-width: 15rem;
+$iphone-height: 31rem;
+$iphone-depth: .6rem;
+$iphone-side: $iphone-depth/2;
+.wrapper
+{
+    -webkit-perspective: 500px;
+    perspective: 500px;
+    -webkit-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+}
+.iphone
+{
     position: relative;
 
-    width: 15rem;
-    height: 31rem;
+    width: $iphone-width;
+    height: $iphone-height;
     margin: 0 auto;
     padding: 0;
+    -webkit-transform: rotateY( 45deg );
+    transform: rotateY( 45deg );
 
-    border: 5px solid #F5CEC4;
-    border-radius: 2rem;
-    background: #f8f8f8;
-    box-shadow: 0 0 0 1px #CACACA, 0 0 30px 0 rgba(0, 0, 0, .5);
-    span {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    // -webkit-animation: giro 20s infinite linear;
+    // animation: giro 20s infinite linear;
+    span
+    {
         display: block;
     }
-    .iphone-top {
-        padding: .6rem 4.5rem 1.6rem;
-
-        text-align: center;
-        .camera {
-            display: block;
-
-            width: .3rem;
-            height: .3rem;
-            margin: 0 auto .6rem;
-
-            border-radius: 50%;
-            background: #28292b;
-        }
-        .sensor {
-            float: left;
-
-            width: .5rem;
-            height: .5rem;
-
-            border-radius: 50%;
-            background: #28292b;
-        }
-        .speakers {
-            display: block;
-
-            width: 2.4rem;
-            height: .3rem;
-            margin: 0 auto;
-
-            border-radius: .7rem;
-            background: #28292b;
-        }
-    }
-    .iphone-content {
-        height: 23.6rem;
-        padding: 0 .5rem;
-        .screen {
-            display: block;
-            overflow: hidden;
-
-            width: 100%;
-            height: 100%;
-
-            background: url(../images/background2.jpg) center center no-repeat;
-            background-size: auto 100%;
-            box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, .2);
-            &::-webkit-scrollbar {
-                display: none;
-            }
-        }
-    }
-    .iphone-btns {
+    .back
+    {
         position: absolute;
+
+        width: $iphone-width;
+        height: $iphone-height;
+
+        -webkit-transform: translateZ(-$iphone-depth);
+        transform: translateZ(-$iphone-depth);
+
+        border-radius: 2rem;
+        background: $iphone-pink;
+    }
+    .center
+    {
+        position: absolute;
+
+        width: $iphone-width;
+        height: $iphone-height;
+        border-radius: 2rem;
+        background: $iphone-pink-dark;
+        -webkit-transform: translateZ(-1px);
+        transform: translateZ(-1px);
+    }
+    .side
+    {
+        position: absolute;
+
+        background: $iphone-pink-dark;
+        border-radius:25px;
+    }
+    .top
+    {
+        top: 0;
+        left: 50%;
+        width: 12rem;
+        height: $iphone-depth;
+
+        -webkit-transform: rotateX(90deg) translateY(-$iphone-side) translateZ($iphone-side) translateX(-50%);
+        transform: rotateX(90deg) translateY(-$iphone-side) translateZ($iphone-side) translateX(-50%);
+    }
+    .bottom
+    {
+        bottom: 0;
+        left: 50%;
+
+        width: 12rem;
+        height: $iphone-depth;
+
+        -webkit-transform: rotateX(90deg) translateY(-$iphone-side) translateZ(-$iphone-side) translateX(-50%);
+        transform: rotateX(90deg) translateY(-$iphone-side) translateZ(-$iphone-side) translateX(-50%);
+    }
+    .left
+    {
         left: 0;
-        width: 100%;
-        .side-btn {
-            position: absolute;
+        top: 50%;
+        width: $iphone-depth;
+        height: 29rem;
 
-            width: .1rem;
-
-            border-radius: .5rem 0 0 .5rem;
-            background: #ccc;
-        }
-        .iphone-btns-left {
-            position: absolute;
-            left: -.4rem;
-            .sound {
-                height: 1.5rem;
-                top: .5rem;
-            }
-            .volume-up {
-                top: 3rem;
-
-                height: 2.5rem;
-            }
-            .volume-down {
-                top: 5.7rem;
-
-                height: 2.5rem;
-            }
-        }
-        .iphone-btns-right {
-            position: absolute;
-            right: -.3rem;
-            .power {
-                top: .5rem;
-                height: 2rem;
-
-                border-radius: 0 2px 2px 0;
-            }
-        }
+        -webkit-transform: rotateY(90deg) translateX($iphone-side) translateZ(-$iphone-side) translateY(-50%);
+        transform: rotateY(90deg) translateX($iphone-side) translateZ(-$iphone-side) translateY(-50%);
     }
-    .iphone-bottom {
-        padding: .5rem 6rem 1rem;
-        .home-btn {
-            width: 2.3rem;
-            height: 2.3rem;
-            margin: 0 auto;
-            background: -webkit-linear-gradient(top left, #F5CEC4  0%, #AF8585  50%, #f0f2f2 75%, #F5CEC4  100%);
-            background: -o-linear-gradient(top left, #F5CEC4  0%, #AF8585  50%, #f0f2f2 75%, #F5CEC4  100%);
-            background: linear-gradient(bottom right, #F5CEC4  0%, #AF8585  50%, #f0f2f2 75%, #F5CEC4  100%);
-            border-radius: 50%;
-            position: relative;
-            &:after {
-                background: radial-gradient(#E6E6E6  0%, #FFF  100%);  
-                content: "";
-                position: absolute;
-                left: .1rem;
-                top: .1rem;
-                width: 2.1rem;
-                height: 2.1rem;
+    .right
+    {
+        right: 0;
+        top: 50%;
+        width: $iphone-depth;
+        height: 29rem;
+
+        -webkit-transform: rotateY(90deg) translateX($iphone-side) translateZ($iphone-side) translateY(-50%);
+        transform: rotateY(90deg) translateX($iphone-side) translateZ($iphone-side) translateY(-50%);
+    }
+    .front
+    {
+        // z-index: 3;
+        position: absolute;
+
+        width: $iphone-width;
+        height: $iphone-height;
+        // border: 5px solid $iphone-pink;
+
+        border-radius: 2rem;
+        background: #f8f8f8;
+        box-shadow: 0 0 0 1px #cacaca, 0 0 30px 0 rgba(0, 0, 0, .5);
+        .iphone-top
+        {
+            padding: .6rem 4.5rem 1.6rem;
+
+            text-align: center;
+            .camera
+            {
+                display: block;
+
+                width: .3rem;
+                height: .3rem;
+                margin: 0 auto .6rem;
+
                 border-radius: 50%;
+                background: #28292b;
+            }
+            .sensor
+            {
+                float: left;
+
+                width: .5rem;
+                height: .5rem;
+
+                border-radius: 50%;
+                background: #28292b;
+            }
+            .speakers
+            {
+                display: block;
+
+                width: 2.4rem;
+                height: .3rem;
+                margin: 0 auto;
+
+                border-radius: .7rem;
+                background: #28292b;
+            }
+        }
+        .iphone-content
+        {
+            height: 23.6rem;
+            padding: 0 .5rem;
+            .screen
+            {
+                display: block;
+                overflow: hidden;
+
+                width: 100%;
+                height: 100%;
+
+                background: url(../images/background2.jpg) center center no-repeat;
+                background-size: auto 100%;
+                box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, .2);
+                &::-webkit-scrollbar
+                {
+                    display: none;
+                }
+            }
+        }
+        // .iphone-btns {
+        //     position: absolute;
+        //     left: 0;
+        //     width: 100%;
+        //     .side-btn {
+        //         position: absolute;
+        //         width: .1rem;
+        //         border-radius: .5rem 0 0 .5rem;
+        //         background: #ccc;
+        //     }
+        //     .iphone-btns-left {
+        //         position: absolute;
+        //         left: -.4rem;
+        //         .sound {
+        //             height: 1.5rem;
+        //             top: .5rem;
+        //         }
+        //         .volume-up {
+        //             top: 3rem;
+        //             height: 2.5rem;
+        //         }
+        //         .volume-down {
+        //             top: 5.7rem;
+        //             height: 2.5rem;
+        //         }
+        //     }
+        //     .iphone-btns-right {
+        //         position: absolute;
+        //         right: -.3rem;
+        //         .power {
+        //             top: .5rem;
+        //             height: 2rem;
+        //             border-radius: 0 2px 2px 0;
+        //         }
+        //     }
+        // }
+        .iphone-bottom
+        {
+            padding: .5rem 6rem 1rem;
+            .home-btn
+            {
+                position: relative;
+
+                width: 2.3rem;
+                height: 2.3rem;
+                margin: 0 auto;
+
+                border-radius: 50%;
+                background: linear-gradient(bottom right, $iphone-pink  0%, #af8585  50%, #f0f2f2 75%, $iphone-pink  100%);
+                &:after
+                {
+                    position: absolute;
+                    top: .1rem;
+                    left: .1rem;
+
+                    width: 2.1rem;
+                    height: 2.1rem;
+
+                    content: '';
+
+                    border-radius: 50%;
+                    background: radial-gradient(#e6e6e6  0%, #fff  100%);
+                }
             }
         }
     }
+}
+
+@-webkit-keyframes giro {
+    0% { -webkit-transform: rotateX(-45deg) rotateY(0deg); }
+    50% { -webkit-transform: rotateX(45deg) rotateY(360deg); }
+    100% { -webkit-transform: rotateX(-45deg) rotateY(720deg); }
+}
+
+@keyframes giro {
+    0% { transform: rotateX(-45deg) rotateY(0deg); }
+    50% { transform: rotateX(45deg) rotateY(360deg); }
+    100% { transform: rotateX(-45deg) rotateY(720deg); }
+}
+
+@-webkit-keyframes giro360 {
+    0% { -webkit-transform: rotateX(  0deg) rotateY(  0deg); }
+    100% { -webkit-transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes giro360 {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
 }
